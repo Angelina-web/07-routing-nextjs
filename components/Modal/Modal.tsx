@@ -1,7 +1,7 @@
 "use client";
 import css from "./Modal.module.css";
 import { useEffect } from "react";
-import type {  ReactNode } from "react";
+import type { ReactNode } from "react";
 import { createPortal } from "react-dom";
 
 interface ModalProps {
@@ -39,7 +39,7 @@ export default function Modal({ children, onClose }: ModalProps) {
       role="dialog"
       aria-modal="true"
     >
-       <div className={css.modal}>{children}</div>
+      <div className={css.modal}>{children}</div>
     </div>,
     document.body
   );

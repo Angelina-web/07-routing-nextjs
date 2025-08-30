@@ -9,18 +9,20 @@ export interface CreateNotePayload {
   content: string;
   tag: "Todo" | "Work" | "Personal" | "Meeting" | "Shopping";
 }
-interface NotesHttpResponse {
+export interface NotesHttpResponse {
   notes: Note[];
   totalPages: number;
 }
 
 export const fetchNotes = async (
   page: number,
-  query: string
+  query: string,
+  tag?: string
 ): Promise<NotesHttpResponse> => {
   const response = await axios.get<NotesHttpResponse>(`${BASE_URL}/notes`, {
     params: {
       search: query,
+      tag,
       page,
       perPage: 12,
     },

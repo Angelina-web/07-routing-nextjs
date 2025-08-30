@@ -3,17 +3,15 @@ import ReactPaginate from "react-paginate";
 
 interface PaginationProps {
   totalPages: number;
-  currentPage: number;
-  setCurrentPage: (page: number) => void;
+  page: number;
+  setPage: (page: number) => void;
 }
 
 export default function Pagination({
   totalPages,
-  currentPage,
-  setCurrentPage,
+  setPage,
+  page,
 }: PaginationProps) {
-  if (totalPages <= 1) return null;
-
   return (
     <ReactPaginate
       breakLabel="..."
@@ -22,10 +20,8 @@ export default function Pagination({
       pageCount={totalPages}
       pageRangeDisplayed={5}
       marginPagesDisplayed={3}
-      onPageChange={({ selected }) => {
-        setCurrentPage(selected + 1);
-      }}
-      forcePage={currentPage - 1}
+      onPageChange={({ selected }) => setPage(selected + 1)}
+      forcePage={page - 1}
       containerClassName={css.pagination}
       activeClassName={css.active}
     />
