@@ -7,7 +7,6 @@ interface SearchBoxProps {
 }
 
 export default function SearchBox({ searchQuery, onUpdate }: SearchBoxProps) {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {};
   return (
     <input
       className={css.input}
